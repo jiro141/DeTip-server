@@ -12,7 +12,8 @@ const transporter = nodemailer.createTransport({
 // Función para enviar un correo electrónico
 const enviarCorreo = async (destinatario, asunto, mensaje, nombreApellido, nombreEmpresa, cargo, fecha, hora) => {
     try {
-        const templateHtml = fs.readFileSync('./template.html', 'utf-8');
+        const path = require('path');
+        const templateHtml = fs.readFileSync(path.resolve(__dirname, 'template.html'), 'utf-8');
         const cuerpoCorreo = templateHtml
             .replace('{nombreApellido}', nombreApellido)
             .replace('{nombreEmpresa}', nombreEmpresa)
@@ -36,7 +37,7 @@ const enviarCorreo = async (destinatario, asunto, mensaje, nombreApellido, nombr
             .replace('{nombreEmpresa}', nombreEmpresa)
             .replace('{cargo}', cargo)
             .replace('{fecha}', fecha)
-            .replace('{mensaje}',mensaje)
+            .replace('{mensaje}', mensaje)
             .replace('{hora}', hora);
         const mailOptionsAdmin = {
             from: destinatario, // Remitente (tu correo)

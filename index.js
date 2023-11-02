@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 5000; // Puedes usar cualquier número de puerto que prefieras
+const port = process.env.PORT || 5000; // Puedes usar cualquier número de puerto que prefieras
 
 app.use(cors());
 const emailController = require('./emailController'); // Importa el controlador de envío de correos
