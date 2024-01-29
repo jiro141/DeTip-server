@@ -5,12 +5,13 @@ const transporter = nodemailer.createTransport({
     service: 'Gmail', // Elige el servicio de correo que desees usar (por ejemplo, Gmail)
     auth: {
         user: 'detipventas@gmail.com', // Coloca tu dirección de correo electrónico
-        pass: 'bdtf ahbz xyga hbgn', // Coloca tu contraseña
+        pass: 'pqpjzbteuwnwzdvo', // Coloca tu contraseña
     },
 });
 
 // Función para enviar un correo electrónico
 const enviarCorreo = async (destinatario, asunto, mensaje, nombreApellido, nombreEmpresa, cargo, fecha, hora) => {
+    console.log(destinatario, 'correo');
     try {
         const path = require('path');
         const templateHtml = fs.readFileSync(path.resolve(__dirname, 'template.html'), 'utf-8');
